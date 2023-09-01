@@ -1,7 +1,11 @@
 import { Col, Row, Statistic, Typography } from 'antd'
 import React from 'react'
+import { useGetCryptosQuery } from '../api/crytoApi'
 
 const Home = () => {
+// const {data, isFetching} = useGetCryptosQuery();
+// console.log(data)
+  
   return (
     <>
         <Typography.Title level={2} className='heading'>Global Cryptoverse</Typography.Title>
