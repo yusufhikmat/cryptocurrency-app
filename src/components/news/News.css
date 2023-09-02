@@ -1,0 +1,25 @@
+.news-heading{
+    display:flex;
+}
+.news-image{
+    height:80px;
+    width: 80px;
+    object-fit: contain;
+    padding-left: 10px;
+    border-radius: 0.5rem;
+}
+.news-description{
+    padding-top: 0.7rem;
+}
+.avater{
+    height: 20px;
+    width:20px;
+    object-fit: contain;
+}
+.news-details{
+    display:flex;
+    justify-content: space-between;
+    font-size: 0.6rem;
+    margin-top: 1rem;
+    color:gray;
+}
