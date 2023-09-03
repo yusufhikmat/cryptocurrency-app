@@ -1,0 +1,65 @@
+.navbar{
+    display:flex;
+    flex-direction: column;
+    background: var(--bgdark);
+    height: 100vh;
+    padding:1rem;
+    position: fixed;
+    top:0;
+    bottom:0;
+    width:250px;
+    z-index: 99;
+  }
+  .nav-logo{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  .logo-name{
+    padding-left: 10px;
+  }
+  .nav-link{
+    color:#fff;
+  }
+  .ant-menu-dark{
+    color:#fff;
+    font-size: 1.2rem;
+    padding-top:2rem;
+  }
+   .ant-menu .ant-menu-item .anticon{
+    font-size: 1.3rem;
+  }
+  .ant-menu-vertical >.ant-menu-item{
+    height: 60px;
+    margin-inline: 0;
+    align-items: center;
+    display:flex;
+  }
+  .toggle-btn{
+    position: fixed;
+    right:0;
+    top:0;
+    display:none;
+    cursor:pointer;
+    z-index:9999;
+    font-size: 1.5rem;
+    color:var(--bgdark);
+    border:none;
+  }
+  
+  @media screen and (max-width:768px) {
+    .ant-layout{
+        margin-left: 0;
+    }
+    .navbar{
+        width:50vw;
+        display: none;
+    }
+    .navbar.visible {
+        display: flex;
+    }
+    .toggle-btn{
+        display:block;
+    }
+  }

@@ -16,7 +16,7 @@ function App() {
               <Route path="/news" element={ <News/>}/>
             </Routes>
         </Layout>
-    </div>
+        </div>
   );
 }
 

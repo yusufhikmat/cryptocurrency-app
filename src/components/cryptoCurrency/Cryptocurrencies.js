@@ -10,7 +10,7 @@ const Cryptocurrencies = ({simplified}) => {
    const { data :allCrypoList, isLoading }  = useGetCryptosQuery(count);
    const [crypto, setCrypto] = useState(allCrypoList?.data?.coins);
    const [search, setSearch] = useState("");
-
+console.log(allCrypoList)
    useEffect(()=>{
     
     const filterData = allCrypoList?.data?.coins.filter((coin)=>coin.name.toLowerCase().includes(search.toLowerCase()))
@@ -22,13 +22,15 @@ const Cryptocurrencies = ({simplified}) => {
    
   return (
     <>
-    <input type="text" value={search} onChange={(e)=>setSearch(e.target.value)} placeholder='search'/>
+    <div className='search-input'>
+    <input className="input-field" type="text" value={search} onChange={(e)=>setSearch(e.target.value)} placeholder='search'/>
+    </div>
     <Row gutter={[32, 32]} className='crypto-card-container'>
     
-        {crypto?.map((item)=>{ 
+        {crypto?.map((item, index)=>{ 
         return( 
-          <Col xs={24} sm={12} lg={6} className='crypto-card' key={item.id}>
-          <Link to={`/crypto/${item.id}`}>
+          <Col xs={24} sm={12} lg={6} className='crypto-card' key={index}>
+          <Link to={`/crypto/${item.uuid}`}>
           <Card 
             title={`${item.rank}. ${item.name}`}
             extra = {<img src={item.iconUrl} alt="" className='crypto-img'/>}

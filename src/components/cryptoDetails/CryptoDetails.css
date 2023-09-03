@@ -1,0 +1,46 @@
+.stats-container{
+    display:flex;
+    width:100%;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 900px;
+    margin: 0 auto;
+    
+}
+.coin-values{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+    
+}
+.coin-desc-link{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.coin-desc-paragraph{
+    padding-top: 0.8rem;
+    font-size: 1rem;
+}
+.coin-links{
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: 0 auto;
+    align-items: center;
+}
+.link-name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    width:500px;
+    border-bottom:1px solid #ccc;
+
+}
+.link-name:hover{
+    background-color: white;
+}
