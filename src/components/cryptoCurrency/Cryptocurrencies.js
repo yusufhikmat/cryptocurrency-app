@@ -22,9 +22,12 @@ console.log(allCrypoList)
    
   return (
     <>
-    <div className='search-input'>
+    {!simplified && (
+      <div className='search-input'>
     <input className="input-field" type="text" value={search} onChange={(e)=>setSearch(e.target.value)} placeholder='search'/>
     </div>
+    )}
+   
     <Row gutter={[32, 32]} className='crypto-card-container'>
     
         {crypto?.map((item, index)=>{ 

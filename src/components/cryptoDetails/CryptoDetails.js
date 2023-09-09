@@ -15,7 +15,9 @@ const CryptoDetails = () => {
   const {data, isLoading} = useGetCryptoDetailsQuery(coinId);
   const cryptoDetails = data?.data?.coin;
   console.log(data);
-  if(isLoading)return "...loading";
+
+  if(isLoading)return "..loading";
+  
   const time = ['3h', '24h', '7d'];
   const stats = [
     {title: "price to USD", value: `$ ${cryptoDetails.price && millify(cryptoDetails.price) }`,icon: <NumberOutlined/>},

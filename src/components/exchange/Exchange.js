@@ -1,50 +1,37 @@
 import React from 'react'
-import { useGetExchangesQuery } from '../../api/crytoApi'
-import { Avatar, Col, Collapse, Row, Typography } from 'antd';
+import { Avatar, Col, Row, Typography } from 'antd';
 import millify from 'millify';
-import HTMLReactParser from 'html-react-parser';
+import { useGetCryptoExchangesQuery } from '../../api/cryptoExchange';
 
 const Exchange = () => {
-  const { data, isLoading} = useGetExchangesQuery();
-  const exchangeList =data?.data?.exchanges;
+  const { data, isLoading} = useGetCryptoExchangesQuery();
   console.log(data)
   
   if(isLoading) return "loading"
   return (
-    <>
-    <Row>
-      <Col span={6}>Exchanges</Col>
+    <div style={{marginTop:"1rem"}}>
+    <Row style={{backgroundColor:"#001529",color:"white", padding:"0.7rem", marginBottom:"1rem"}}>
+      <Col span={10}>Name</Col>
       <Col span={6}>24h Trade Volume</Col>
-      <Col span={6}>Markets</Col>
-      <Col span={6}>Change</Col>
+      <Col span={4}>Rank</Col>
+      <Col span={4}>Year_est</Col>
     </Row>
     <Row>
-      {exchangeList?.map((exchange)=>(
-        <Col span={24}>
-        <Collapse>
-        <Collapse.Panel 
-        key={exchange.id}
-        showArrow={false}
-        header = {(
+      {data?.map((exchange)=>(
+        <Col span={24}  style={{padding:"0.7rem 0", borderBottom:"0.1px solid gray"}}>
           <Row key={exchange.id}>
-            <Col span={6}>
-            <Typography.Text>{exchange.rank}</Typography.Text>
-            <Avatar src={exchange.iconUrl}/>
+            <Col span={10}>
+            <Avatar src={exchange.image} style={{width:"30px", height:"30px", borderRadius:"50%"}}/>
             <Typography.Text>{exchange.name}</Typography.Text>
             </Col>
-            <Col span={6}>${millify(exchange.volume)}</Col>
-            <Col span={6}>${millify(exchange.numberOfMarkets)}</Col>
-            <Col span={6}>${millify(exchange.marketShare)}%</Col>
+            <Col span={6}>${millify(exchange.trade_volume_24h_btc)}</Col>
+            <Col span={4}><Typography.Text>{exchange.trust_score_rank}</Typography.Text></Col>
+            <Col span={4}><Typography.Text>{exchange.year_established}</Typography.Text></Col>
           </Row>
-        )}
-        >
-        {HTMLReactParser(exchange.description || '')}
-        </Collapse.Panel>
-        </Collapse>
         </Col>
       ))}
     </Row>
-    </>
+    </div>
   )
 }
 
